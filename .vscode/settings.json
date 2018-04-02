@@ -4,6 +4,7 @@
     "**/.DS_Store": true,
     "node_modules": true,
     "coverage": true,
-    "dist": true
+    "dist": true,
+    ".next": true,
   }
 }
