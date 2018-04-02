@@ -10,6 +10,6 @@ export interface Theme {
 export const normal: Theme = {
   colorPrimary: "#dcf8c6",
   size,
-  sizeCornerBubble: "0.25em",
+  sizeCornerBubble: "10px",
   sizeIn,
 };
