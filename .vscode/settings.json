@@ -5,6 +5,6 @@
     "node_modules": true,
     "coverage": true,
     "dist": true,
-    ".next": true,
+    ".next": true
   }
 }

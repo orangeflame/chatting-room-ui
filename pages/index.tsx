@@ -1,8 +1,11 @@
 import * as React from "react";
-import styled from "styled-components";
+import { Bubble } from "modules/chat/components/Bubble/component";
+import { ThemeProvider, themes } from "modules/core/styles";
 
-const Button = styled.button`
-  background: red;
-`;
-
-export default () => <div>Hi, there <Button>Click me </Button></div>;
+export default () => (
+  <ThemeProvider theme={themes.normal}>
+    <div>
+      Hi, there <Bubble />
+    </div>
+  </ThemeProvider>
+);
