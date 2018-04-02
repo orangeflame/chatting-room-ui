@@ -2,10 +2,16 @@
   "name": "chatting-room-ui",
   "version": "1.0.0",
   "description": "frontend workshop",
-  "main": "index.js",
+  "main": "index.ts",
   "repository": "git@github.com:orangeflame/chatting-room-ui.git",
   "author": "le.zheng <le.zheng@ef.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon",
+    "test": "jest",
+    "lint": "tslint -p . -c tslint.json",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css,json,md}\""
+  },
   "devDependencies": {
     "jest": "^22.4.3",
     "nodemon": "^1.17.3",
