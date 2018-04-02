@@ -5,5 +5,15 @@
   "main": "index.js",
   "repository": "git@github.com:orangeflame/chatting-room-ui.git",
   "author": "le.zheng <le.zheng@ef.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^22.4.3",
+    "nodemon": "^1.17.3",
+    "prettier": "^1.11.1",
+    "ts-node": "^5.0.1",
+    "tslint-config-prettier": "^1.10.0",
+    "tslint-immutable": "^4.5.3",
+    "tslint-plugin-prettier": "^1.3.0",
+    "typescript": "^2.8.1"
+  }
 }
