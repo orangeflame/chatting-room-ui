@@ -6,7 +6,10 @@ import { ThemeProvider, themes } from "modules/core/styles";
 export default () => (
   <ThemeProvider theme={themes.normal}>
     <div>
-      Hi, there <Bubble />
+      <span>Hi, there</span>
+      <Bubble>1</Bubble>
+      <Bubble>2</Bubble>
+      <Bubble>3</Bubble>
     </div>
   </ThemeProvider>
 );

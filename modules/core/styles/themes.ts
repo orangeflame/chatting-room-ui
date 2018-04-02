@@ -3,5 +3,5 @@ export interface Theme {
 }
 
 export const normal: Theme = {
-  colorPrimary: "red",
+  colorPrimary: "#dcf8c6",
 };
