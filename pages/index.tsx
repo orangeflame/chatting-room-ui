@@ -1,3 +1,8 @@
 import * as React from "react";
+import styled from "styled-components";
 
-export default () => <div>Hi, there123</div>;
+const Button = styled.button`
+  background: red;
+`;
+
+export default () => <div>Hi, there <Button>Click me </Button></div>;
