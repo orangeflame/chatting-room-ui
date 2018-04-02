@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  app:
+    build: .
+    volumes:
+      - .:/opt/app
+      - yarn-cache:/opt/.yarn-cache
+    ports:
+      - '3000:3000'
+    environment:
+      PORT: '3000'
+
+volumes:
+  yarn-cache:
