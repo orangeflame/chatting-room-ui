@@ -1,20 +1,25 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "allowJs": false,
-    "baseUrl": "src",
-    "lib": ["es2017", "dom"],
-    "module": "commonjs",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "lib": ["dom", "es2015", "es2016"],
+    "module": "esnext",
     "moduleResolution": "node",
-    "outDir": "dist",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "dist/",
     "preserveConstEnums": true,
-    "rootDir": "src",
+    "removeComments": false,
+    "skipLibCheck": true,
     "sourceMap": true,
+    "jsx": "preserve",
     "strictNullChecks": true,
-    "target": "es5",
+    "target": "esnext",
     "typeRoots": ["./node_modules/@types"],
     "paths": {
       "*": ["*"]
     }
-  },
-  "include": ["src/**/*"]
+  }
 }
