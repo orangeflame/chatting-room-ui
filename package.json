@@ -1,0 +1,9 @@
+{
+  "name": "chatting-room-ui",
+  "version": "1.0.0",
+  "description": "frontend workshop",
+  "main": "index.js",
+  "repository": "git@github.com:orangeflame/chatting-room-ui.git",
+  "author": "le.zheng <le.zheng@ef.com>",
+  "license": "MIT"
+}
