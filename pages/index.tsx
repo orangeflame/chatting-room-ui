@@ -7,9 +7,9 @@ export default () => (
   <ThemeProvider theme={themes.normal}>
     <div>
       <span>Hi, there</span>
-      <Bubble>1</Bubble>
-      <Bubble>2</Bubble>
-      <Bubble>3</Bubble>
+      <Bubble>Hello</Bubble>
+      <Bubble>dega</Bubble>
+      <Bubble>Le</Bubble>
     </div>
   </ThemeProvider>
 );
