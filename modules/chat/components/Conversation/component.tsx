@@ -22,7 +22,7 @@ const Conversation = () => (
       const hasNewSender = lastMsg.from !== msg.from;
       const separation = hasNewSender ? "big" : "small";
       return (
-        <Bubble from={from} tail={hasNewSender} separation={separation}>
+        <Bubble key={msg.id} from={from} tail={hasNewSender} separation={separation}>
           {msg.message}
         </Bubble>
       );
