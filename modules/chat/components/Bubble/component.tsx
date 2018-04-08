@@ -1,4 +1,4 @@
-import styled from "modules/core/styles";
+import { styled } from "modules/core/styles";
 const Container = styled.div`
   background: ${({ theme }) => theme.colorPrimary};
   border-radius: ${({ theme }) => theme.sizeCornerBubble};

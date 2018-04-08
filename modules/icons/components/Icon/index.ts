@@ -1,1 +1,1 @@
-export { Component as Icon } from "./component";
+export { Styled as Icon } from "./styled";

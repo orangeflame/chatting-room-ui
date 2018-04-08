@@ -13,5 +13,4 @@ const {
   withTheme,
 } = styledComponents as ThemedStyledComponentsModule<Theme>;
 
-export { css, injectGlobal, keyframes, ThemeProvider, themes, withTheme, Theme };
-export default styled;
+export { css, injectGlobal, keyframes, ThemeProvider, themes, withTheme, Theme, styled };
