@@ -1,9 +1,24 @@
-import { styled } from "modules/core/styles";
-const Container = styled.div`
-  background: ${({ theme }) => theme.colorPrimary};
-  border-radius: ${({ theme }) => theme.sizeCornerBubble};
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  padding: ${({ theme }) => theme.sizeIn(-10)} ${({ theme }) => theme.sizeIn(-4)};
-`;
+import * as React from "react";
 
-export const Bubble = (props) => <Container>{props.children}</Container>;
+import { BubbleFromLeft } from "modules/chat/components/Bubble/BubbleFromLeft";
+import { BubbleFromRight } from "modules/chat/components/Bubble/BubbleFromRight";
+
+export interface Props {
+  from: "left" | "right";
+  tail?: boolean;
+  separation?: "big" | "small";
+}
+
+class Component extends React.PureComponent<Props> {
+  public static displayName = "Bubble";
+
+  public render() {
+    return this.props.from === "left" ? (
+      <BubbleFromLeft {...this.props} type="primary" />
+    ) : (
+      <BubbleFromRight {...this.props} type="secondary" />
+    );
+  }
+}
+
+export { Component };

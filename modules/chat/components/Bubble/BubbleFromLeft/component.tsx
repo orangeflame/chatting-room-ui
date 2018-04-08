@@ -7,7 +7,7 @@ import tailsSvg from "./tail.svg";
 export interface Props {
   className?: string;
   type?: "primary" | "secondary";
-  tails?: boolean;
+  tail?: boolean;
   separation?: "big" | "small";
 }
 
@@ -18,7 +18,7 @@ class Component extends React.PureComponent<Props> {
     return (
       <div className={this.props.className}>
         <div>{this.props.children}</div>
-        {!!this.props.tails && (
+        {!!this.props.tail && (
           <span>
             <Icon src={tailsSvg} />
           </span>
