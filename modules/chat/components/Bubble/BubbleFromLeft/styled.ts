@@ -7,7 +7,7 @@ export const Styled = styled(Component)`
   flex-direction: row-reverse;
   justify-content: flex-end;
   margin: ${(props) => props.theme.sizeIn(-10)};
-  margin-bottom: ${({ theme, separation }) => (separation === "big" ? theme.sizeIn(-4) : theme.sizeIn(-10))};
+  margin-top: ${({ theme, separation }) => (separation === "big" ? theme.sizeIn(-4) : theme.sizeIn(-10))};
   padding-left: ${(props) => (props.tail ? "" : props.theme.sizeBubbleTail)};
 
   > div {

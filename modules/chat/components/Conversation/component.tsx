@@ -17,11 +17,12 @@ for (let i = 0; i < 50; i += 1) {
 const Conversation = () => (
   <div>
     {messages.map((msg, index, msgs) => {
-      const from = msg.from === me.id ? "left" : "right";
-      const tail = index === 0;
-      const separation = index === msgs.length - 1 ? "big" : "small";
+      const lastMsg = msgs[index - 1] || {};
+      const from = msg.from === me.id ? "right" : "left";
+      const hasNewSender = lastMsg.from !== msg.from;
+      const separation = hasNewSender ? "big" : "small";
       return (
-        <Bubble from={from} tail={tail} separation={separation}>
+        <Bubble from={from} tail={hasNewSender} separation={separation}>
           {msg.message}
         </Bubble>
       );
