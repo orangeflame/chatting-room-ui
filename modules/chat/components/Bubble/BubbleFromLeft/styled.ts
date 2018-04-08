@@ -1,28 +1,40 @@
-import { styled } from "modules/core/styles";
+import { styled, ThemedProps } from "modules/core/styles";
 
-import { Component } from "./component";
+import { Component, Props } from "./component";
+
+const getBg = (props: ThemedProps<Props>) =>
+  !props.type || props.type === "primary" ? props.theme.colorBg : props.theme.colorPrimary;
+
+const getMarginBottom = ({ separation = false, theme }: ThemedProps<Props>) => {
+  if (!separation) return "";
+  if (separation === "big") return theme.sizeBubbleTail;
+  return `calc(${theme.sizeBubbleTail} / 2)`;
+};
 
 export const Styled = styled(Component)`
+  align-items: flex-start;
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
   padding-left: ${(props) => (props.tail ? "" : props.theme.sizeBubbleTail)};
 
   :not(:first-child) {
-    margin-top: ${({ theme, separation }) => (separation === "big" ? theme.sizeIn(-4) : theme.sizeIn(-10))};
+    margin-top: ${getMarginBottom};
   }
 
   > div {
-    background: ${({ theme }) => theme.colorBg};
-    border-radius: ${({ theme }) => theme.sizeCornerBubble};
-    border-top-left-radius: ${(props) => (props.tail ? 0 : props.theme.sizeCornerBubble)};
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    padding: ${({ theme }) => theme.sizeIn(-10)} ${({ theme }) => theme.sizeIn(-4)};
+    background: ${getBg};
+    border-radius: ${(props) => props.theme.sizeCornerBubble};
+    border-top-left-radius: ${(props) => (props.tail ? 0 : "")};
+    box-shadow: ${(props) => props.theme.shadow};
+    padding: ${(props) => props.theme.sizeIn(-10)} ${(props) => props.theme.sizeIn(-4)};
+    position: relative;
   }
 
   > span {
-    color: ${({ theme }) => theme.colorBg};
-    font-size: ${({ theme }) => theme.sizeBubbleTail};
+    color: ${getBg};
+    font-size: ${(props) => props.theme.sizeBubbleTail};
     transform: scaleX(-1);
+    z-index: 1;
   }
 `;

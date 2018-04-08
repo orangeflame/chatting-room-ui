@@ -23,6 +23,10 @@ export const injectGlobalWithTheme = (theme: Theme) => injectGlobal`
     font-size: inherit;
   }
 
+  * {
+    -webkit-text-size-adjust: none;
+  }
+
   a,
   a:visited {
     text-decoration: none;

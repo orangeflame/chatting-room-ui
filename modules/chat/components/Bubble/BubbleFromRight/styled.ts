@@ -1,19 +1,15 @@
-import { styled } from "modules/core/styles";
+import { BubbleFromLeft } from "../BubbleFromLeft";
 
-import { Styled as BubbleFromLeft } from "../BubbleFromLeft/styled";
-
-export const Styled = styled(BubbleFromLeft)`
+export const Styled = BubbleFromLeft.extend`
   flex-direction: row;
   padding-right: ${(props) => (props.tail ? "" : props.theme.sizeBubbleTail)};
 
   > div {
-    background: ${({ theme }) => theme.colorPrimary};
-    border-top-right-radius: ${(props) => (props.tail ? 0 : props.theme.sizeCornerBubble)};
-    border-top-left-radius: ${({ theme }) => theme.sizeCornerBubble};
+    border-top-left-radius: ${(props) => props.theme.sizeCornerBubble};
+    border-top-right-radius: ${(props) => (props.tail ? 0 : "")};
   }
 
   > span {
-    color: ${({ theme }) => theme.colorPrimary};
-    transform: scaleX(1);
+    transform: none;
   }
 `;
