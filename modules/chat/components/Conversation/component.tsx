@@ -14,8 +14,8 @@ for (let i = 0; i < 50; i += 1) {
   messages.push({ id: `${1000 + i}`, from: "2", message: "Good, and you?" });
 }
 
-const Conversation = () => (
-  <div>
+const Component = (props) => (
+  <div className={props.className}>
     {messages.map((msg, index, msgs) => {
       const lastMsg = msgs[index - 1] || {};
       const from = msg.from === me.id ? "right" : "left";
@@ -30,4 +30,4 @@ const Conversation = () => (
   </div>
 );
 
-export { Conversation };
+export { Component };
