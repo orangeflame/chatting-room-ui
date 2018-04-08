@@ -6,9 +6,11 @@ export const Styled = styled(Component)`
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
-  margin: ${(props) => props.theme.sizeIn(-10)};
-  margin-top: ${({ theme, separation }) => (separation === "big" ? theme.sizeIn(-4) : theme.sizeIn(-10))};
   padding-left: ${(props) => (props.tail ? "" : props.theme.sizeBubbleTail)};
+
+  :not(:first-child) {
+    margin-top: ${({ theme, separation }) => (separation === "big" ? theme.sizeIn(-4) : theme.sizeIn(-10))};
+  }
 
   > div {
     background: ${({ theme }) => theme.colorBg};
