@@ -1,1 +1,1 @@
-export { Component as BubbleFromLeft } from "./component";
+export { Styled as BubbleFromLeft } from "./styled";
