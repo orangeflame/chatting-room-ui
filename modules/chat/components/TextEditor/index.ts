@@ -1,1 +1,1 @@
-export { TextEditor } from "./component";
+export { Styled as TextEditor } from "./styled";

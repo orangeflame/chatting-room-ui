@@ -1,5 +1,5 @@
 import * as React from "react";
 
-const TextEditor = () => <div>This is a placeholder of TextEditor</div>;
+const Component = (props) => <div className={props.className}>This is a placeholder of TextEditor</div>;
 
-export { TextEditor };
+export { Component };
