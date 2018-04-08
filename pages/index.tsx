@@ -7,9 +7,7 @@ import { ThemeProvider, themes } from "modules/core/styles";
 export default () => (
   <ThemeProvider theme={themes.normal}>
     <App>
-      <div>
-        <Chat />
-      </div>
+      <Chat />
     </App>
   </ThemeProvider>
 );
