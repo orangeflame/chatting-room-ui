@@ -16,17 +16,19 @@ for (let i = 0; i < 50; i += 1) {
 
 const Component = (props) => (
   <div className={props.className}>
-    {messages.map((msg, index, msgs) => {
-      const lastMsg = msgs[index - 1] || {};
-      const from = msg.from === me.id ? "right" : "left";
-      const hasNewSender = lastMsg.from !== msg.from;
-      const separation = hasNewSender ? "big" : "small";
-      return (
-        <Bubble key={msg.id} from={from} tail={hasNewSender} separation={separation}>
-          {msg.message}
-        </Bubble>
-      );
-    })}
+    <div>
+      {messages.map((msg, index, msgs) => {
+        const lastMsg = msgs[index - 1] || {};
+        const from = msg.from === me.id ? "right" : "left";
+        const hasNewSender = lastMsg.from !== msg.from;
+        const separation = hasNewSender ? "big" : "small";
+        return (
+          <Bubble key={msg.id} from={from} tail={hasNewSender} separation={separation}>
+            {msg.message}
+          </Bubble>
+        );
+      })}
+    </div>
   </div>
 );
 
