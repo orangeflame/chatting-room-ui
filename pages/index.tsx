@@ -14,6 +14,7 @@ export default () => (
         <Bubble>dega</Bubble>
         <Bubble>Le</Bubble>
         <BubbleFromLeft tails>Ruben</BubbleFromLeft>
+        <BubbleFromLeft>Sunny</BubbleFromLeft>
       </div>
     </App>
   </ThemeProvider>
