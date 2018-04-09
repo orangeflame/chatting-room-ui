@@ -3,7 +3,7 @@ import * as React from "react";
 export interface Props {
   src: any;
   className?: string;
-  onClick?: (evt: React.KeyboardEvent<HTMLDivElement>) => void;
+  onClick?: () => void;
 }
 
 class Component extends React.Component<Props> {
