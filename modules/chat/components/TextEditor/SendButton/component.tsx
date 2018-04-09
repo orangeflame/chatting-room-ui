@@ -1,11 +1,12 @@
 import * as React from "react";
 
-import { Field, SendButton } from "./";
+import { Icon } from "modules/icons";
+
+import sendBtn from "./send-button.svg";
 
 const Component = (props) => (
   <div className={props.className}>
-    <Field />
-    <SendButton />
+    <Icon src={sendBtn} />
   </div>
 );
 
