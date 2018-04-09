@@ -3,9 +3,10 @@ import { styled } from "modules/core/styles";
 import { Component } from "./component";
 
 export const Styled = styled(Component)`
+  background-color: #f6f1ee;
   display: flex;
   flex-direction: row;
-  min-height: 10vh;
-  max-height: 20vh;
   padding: 1em;
+  min-height: 2.75em;
+  max-height: 20vh;
 `;
