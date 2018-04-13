@@ -1,37 +1,66 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
 version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
-      - image: circleci/node:7.10
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
+      - image: circleci/node:8
 
     working_directory: ~/repo
 
     steps:
       - checkout
-
-      # Download and cache dependencies
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: yarn install
+      - run: yarn
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      # run tests!
-      - run: yarn test
+      - run:
+          name: Install AWS CLI
+          working_directory: ~
+          command: |
+            sudo apt-get -y -qq update
+            sudo apt-get -y -qq install python3.4-dev
+            curl -O https://bootstrap.pypa.io/get-pip.py
+            sudo python3.4 get-pip.py
+            sudo pip install awscli --upgrade
+
+      - run:
+          name: Install ecs-deploy
+          command: sudo npm install -g ecs-deploy
+
+      - run:
+          name: Runing unit tests
+          command: yarn test --ci --testResultsProcessor="jest-junit"
+          environment:
+            JEST_JUNIT_OUTPUT: "test-results/Jest/js-test-results.xml"
+
+      - store_test_results:
+          path: test-results
+
+      - run:
+          name: Build
+          command: yarn clean && yarn build
+
+      - setup_remote_docker
+
+      - run:
+          name: Build docker image
+          command: docker build -t $AWS_ECR_URI:$CIRCLE_SHA1 -f production.Dockerfile .
+
+      - run:
+          name: Push to ECR
+          command: |
+            mkdir ~/.aws && echo -e "[default]\naws_access_key_id=$AWS_ACCESS_KEY_ID\naws_secret_access_key=$AWS_SECRET_ACCESS_KEY\n" > ~/.aws/credentials
+            DOCKER_LOGIN=`aws ecr get-login --no-include-email --region us-east-1` && $DOCKER_LOGIN
+            docker push $AWS_ECR_URI:$CIRCLE_SHA1
+
+      - run:
+          name: Deploy image
+          command: REGION=us-east-1 CLUSTER=js-workshop-ui SERVICE=js-workshop-le-api CONTAINER=app IMAGE=$AWS_ECR_URI IMAGE_TAG=$CIRCLE_SHA1 ecs-deploy
+
