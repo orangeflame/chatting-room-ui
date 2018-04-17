@@ -1,7 +1,8 @@
+import * as cookies from "next-cookies";
 import * as React from "react";
 
 import { App } from "modules/app";
-import { authenticator, Me, MeContext } from "modules/authentication";
+import { authenticator, Me, MeContext, SignIn } from "modules/authentication";
 import { Chat, Message, MessagesContext, messagesLoader } from "modules/chat";
 import { Theme, ThemeProvider, themes } from "modules/core/styles";
 
@@ -9,8 +10,13 @@ export default class Index extends React.Component<
   { messages: Message[]; me?: Me },
   { messages: Message[]; theme: Theme }
 > {
-  public static async getInitialProps() {
-    const me = await authenticator.signIn({ username: "le", password: "123" });
+  public static async getInitialProps(ctx) {
+    const { username, password } = cookies(ctx);
+    if (!username || !password) {
+      return {};
+    }
+
+    const me = await authenticator.signIn({ username, password });
     const messages = await messagesLoader.fetchMessages(me);
     return { messages, me };
   }
@@ -38,7 +44,7 @@ export default class Index extends React.Component<
               </MessagesContext.Provider>
             </MeContext.Provider>
           )}
-          {!this.props.me && <span>Login</span>}
+          {!this.props.me && <SignIn />}
         </App>
       </ThemeProvider>
     );

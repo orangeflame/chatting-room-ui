@@ -20,8 +20,10 @@
     "base-64": "^0.1.0",
     "cross-fetch": "^2.1.0",
     "express": "^4.16.3",
+    "js-cookie": "^2.2.0",
     "luxon": "^1.0.0",
     "next": "^5.1.0",
+    "next-cookies": "^1.0.2",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
     "styled-components": "^3.2.5",
@@ -30,6 +32,7 @@
   "devDependencies": {
     "@types/express": "^4.11.1",
     "@types/jest": "^22.2.2",
+    "@types/js-cookie": "^2.1.0",
     "@types/next": "^2.4.8",
     "@types/node": "^9.6.1",
     "@types/react": "^16.1.0",
