@@ -5,7 +5,7 @@ import { Chat, Message, messagesLoader } from "modules/chat";
 import { ThemeProvider, themes } from "modules/core/styles";
 
 export default class Index extends React.Component<{ messages: Message[] }> {
-  public static async getInitialProps(ctx) {
+  public static async getInitialProps() {
     const messages = await messagesLoader.fetchMessages({ username: "le", password: "123" });
     return { messages };
   }
