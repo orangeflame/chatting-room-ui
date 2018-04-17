@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { App } from "modules/app";
-import { Chat, Message, messagesLoader } from "modules/chat";
+import { Chat, Message, MessagesContext, messagesLoader } from "modules/chat";
 import { ThemeProvider, themes } from "modules/core/styles";
 
 export default class Index extends React.Component<{ messages: Message[] }> {
@@ -14,7 +14,9 @@ export default class Index extends React.Component<{ messages: Message[] }> {
     return (
       <ThemeProvider theme={themes.normal}>
         <App>
-          <Chat />
+          <MessagesContext.Provider value={this.props.messages}>
+            <Chat />
+          </MessagesContext.Provider>
         </App>
       </ThemeProvider>
     );

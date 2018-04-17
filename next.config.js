@@ -8,4 +8,7 @@ module.exports = withTs({
     config.resolve.modules.push(__dirname);
     return config;
   },
+  publicRuntimeConfig: {
+    API_BASE_URL: process.env.API_BASE_URL,
+  },
 });
