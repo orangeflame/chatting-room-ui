@@ -1,9 +1,13 @@
 import * as React from "react";
 
+import { Me } from "modules/authentication";
+import { messagesLoader } from "modules/chat";
+
 import { Field, SendButton } from "./";
 
 export interface Props {
   className?: string;
+  me: Me;
 }
 
 export interface State {
@@ -27,6 +31,11 @@ class Component extends React.PureComponent<Props, State> {
   }
 
   private _sendMessage() {
+    messagesLoader.sendMessages({
+      message: this.state.message,
+      password: this.props.me.password,
+      username: this.props.me.username,
+    });
     this.setState({ message: "" });
   }
 
