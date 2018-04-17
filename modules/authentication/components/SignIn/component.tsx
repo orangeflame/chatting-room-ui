@@ -3,17 +3,12 @@ import * as React from "react";
 
 import { authenticator, Me } from "modules/authentication";
 
-export interface Props {
-  password: string;
-  username: string;
-}
-
 export interface State {
   password: string;
   username: string;
 }
 
-class Component extends React.PureComponent<Props, State> {
+class Component extends React.PureComponent<{}, State> {
   public static displayName = "SignIn";
 
   public render() {
@@ -51,7 +46,7 @@ class Component extends React.PureComponent<Props, State> {
     });
   };
 
-  private onSignInClicked = async(event: React.MouseEvent<HTMLButtonElement>) => {
+  private onSignInClicked = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     const me = await authenticator.signIn({ username: this.state.username, password: this.state.password });
     this.saveUser(me);
