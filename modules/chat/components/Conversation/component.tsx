@@ -12,8 +12,8 @@ const Component = (props) => (
             {(messages) =>
               messages.map((msg, index, msgs) => {
                 const lastMsg = msgs[index - 1] || {};
-                const from = msg.user === me.id ? "right" : "left";
-                const hasNewSender = lastMsg.user !== msg.user;
+                const from = msg.userId === me.id ? "right" : "left";
+                const hasNewSender = lastMsg.userId !== msg.userId;
                 const separation = hasNewSender ? "big" : "small";
                 return (
                   <Bubble key={msg.id} from={from} tail={hasNewSender} separation={separation}>

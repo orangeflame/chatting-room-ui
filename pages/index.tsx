@@ -38,7 +38,7 @@ export default class Index extends React.Component<
               </MessagesContext.Provider>
             </MeContext.Provider>
           )}
-          {this.props.me && <span>Login</span>}
+          {!this.props.me && <span>Login</span>}
         </App>
       </ThemeProvider>
     );
