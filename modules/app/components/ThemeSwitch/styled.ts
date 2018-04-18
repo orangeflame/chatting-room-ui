@@ -9,5 +9,6 @@ export const ThemeSwitch = styled(Component)`
   outline: none;
   position: fixed;
   top: 0;
-  padding: ${(props) => props.theme.sizeIn(1)};
+  padding: ${(props) => props.theme.sizeIn(-5)};
+  font-size: ${(props) => props.theme.sizeIn(5)};
 `;
