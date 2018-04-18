@@ -19,9 +19,9 @@ class Component extends React.PureComponent<Props> {
     if (!(event.keyCode === 13)) {
       return this.props.onTextChange(message);
     }
+    event.preventDefault();
     this.props.onSendMessage(div.innerText);
     div.innerText = "";
-    event.preventDefault();
   };
 }
 

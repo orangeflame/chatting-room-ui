@@ -1,1 +1,2 @@
-export { ThemeApp as App } from "./components/ThemeApp";
+export { App } from "./components/App";
+export { ThemeSwitch } from "./components/ThemeSwitch";

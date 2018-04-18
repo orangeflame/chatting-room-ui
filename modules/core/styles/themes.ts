@@ -1,7 +1,8 @@
 import { size, sizeIn } from "./size";
 
 export const normal = {
-  colorBg: "#fff",
+  colorBg: "#f6f1ee",
+  colorConversationBg: "#e5ddd5",
   colorPrimary: "#dcf8c6",
   colorTextBase: "#000",
   fontBase: `-apple-system, "BlinkMacSystemFont", ".SFNSDisplay-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif`,
@@ -13,3 +14,10 @@ export const normal = {
 };
 
 export type Theme = typeof normal;
+
+export const dark: Theme = {
+  ...normal,
+  colorBg: "#a99b93",
+  colorConversationBg: "#5c4f47",
+  colorTextBase: "#000",
+};
