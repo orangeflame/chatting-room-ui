@@ -20,7 +20,7 @@ class Component extends React.PureComponent<Props, State> {
   public render() {
     return (
       <div className={this.props.className}>
-        <Field onTextChange={(event) => this._onTextChange(event)} />
+        <Field onTextChange={(event) => this._onTextChange(event)} onSendMessage={() => this._sendMessage()} />
         <SendButton onClick={this._onSendClick} />
       </div>
     );
@@ -39,17 +39,10 @@ class Component extends React.PureComponent<Props, State> {
     this.setState({ message: "" });
   }
 
-  private _onTextChange(event: React.KeyboardEvent<HTMLDivElement>) {
-    const div = event.target as HTMLDivElement;
-    const message = div.innerText;
-    if (!(event.keyCode === 13)) {
-      return this.setState({
-        message,
-      });
-    }
-    div.innerText = "";
-    this._sendMessage();
-    event.preventDefault();
+  private _onTextChange(message) {
+    return this.setState({
+      message,
+    });
   }
 }
 
