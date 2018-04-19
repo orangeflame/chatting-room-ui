@@ -17,18 +17,20 @@ export interface State {
 class Component extends React.PureComponent<Props, State> {
   public static displayName = "TextEditor";
 
+  public state = { message: "" };
+
   public render() {
     return (
       <div className={this.props.className}>
-        <Field onTextChange={(event) => this._onTextChange(event)} onSendMessage={() => this._sendMessage()} />
+        <Field html={this.state.message} onTextChange={(event) => this._onTextChange(event)} />
         <SendButton onClick={this._onSendClick} />
       </div>
     );
   }
 
-  private _onSendClick() {
+  private _onSendClick = () => {
     this._sendMessage();
-  }
+  };
 
   private _sendMessage() {
     messagesLoader.sendMessages({

@@ -7,6 +7,7 @@ export interface Props {
   from: "left" | "right";
   tail?: boolean;
   separation?: "big" | "small";
+  message?: string;
 }
 
 class Component extends React.PureComponent<Props> {
@@ -14,7 +15,12 @@ class Component extends React.PureComponent<Props> {
 
   public render() {
     return this.props.from === "left" ? (
-      <BubbleFromLeft {...this.props} type="primary" />
+      <BubbleFromLeft
+        tail={this.props.tail}
+        separation={this.props.separation}
+        message={this.props.message}
+        type="primary"
+      />
     ) : (
       <BubbleFromRight {...this.props} type="secondary" />
     );

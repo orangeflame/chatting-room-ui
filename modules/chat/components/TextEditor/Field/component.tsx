@@ -1,27 +1,28 @@
 import * as React from "react";
+import ContentEditable from "react-contenteditable";
 
 export interface Props {
   className?: string;
+  html?: any;
   onTextChange: (string) => void;
-  onSendMessage: (string) => void;
 }
 
 class Component extends React.PureComponent<Props> {
   public static displayName = "Field";
 
   public render() {
-    return <div className={this.props.className} contentEditable onKeyUp={this.onTextChange} />;
+    return (
+      <ContentEditable
+        html={this.props.html}
+        className={this.props.className}
+        contentEditable
+        onChange={this.onTextChange}
+      />
+    );
   }
 
-  private onTextChange = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    const div = event.target as HTMLDivElement;
-    const message = div.innerText;
-    if (!(event.keyCode === 13)) {
-      return this.props.onTextChange(message);
-    }
-    event.preventDefault();
-    this.props.onSendMessage(div.innerText);
-    div.innerText = "";
+  private onTextChange = (event: any) => {
+    return this.props.onTextChange(event.target.value);
   };
 }
 

@@ -16,9 +16,7 @@ const Component = (props) => (
                 const hasNewSender = lastMsg.userId !== msg.userId;
                 const separation = hasNewSender ? "big" : "small";
                 return (
-                  <Bubble key={msg.id} from={from} tail={hasNewSender} separation={separation}>
-                    {msg.message}
-                  </Bubble>
+                  <Bubble key={msg.id} from={from} tail={hasNewSender} separation={separation} message={msg.message} />
                 );
               })
             }

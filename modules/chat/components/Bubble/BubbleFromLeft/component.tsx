@@ -9,15 +9,19 @@ export interface Props {
   type?: "primary" | "secondary";
   tail?: boolean;
   separation?: "big" | "small";
+  message?: string;
 }
 
 class Component extends React.PureComponent<Props> {
   public static displayName = "BubbleFromLeft";
 
   public render() {
+    if (!this.props.message) {
+      return null;
+    }
     return (
       <div className={this.props.className}>
-        <div>{this.props.children}</div>
+        <div dangerouslySetInnerHTML={{ __html: this.props.message }} />
         {!!this.props.tail && (
           <span>
             <Icon src={tailsSvg} />
