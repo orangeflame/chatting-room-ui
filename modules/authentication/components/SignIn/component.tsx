@@ -3,17 +3,21 @@ import * as React from "react";
 
 import { authenticator, Me } from "modules/authentication";
 
+export interface Props {
+  className?: string;
+}
+
 export interface State {
   password: string;
   username: string;
 }
 
-class Component extends React.PureComponent<{}, State> {
+class Component extends React.PureComponent<Props, State> {
   public static displayName = "SignIn";
 
   public render() {
     return (
-      <div>
+      <div className={this.props.className}>
         <div>
           <label>
             user
